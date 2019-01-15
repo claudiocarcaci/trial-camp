@@ -14,6 +14,30 @@ public class MinimumSwapsSpec {
     int minSwaps = MinSwaps.computate(unordered);
 
     // verify
-    assertEquals(4, minSwaps);
+    assertEquals(5, minSwaps);
+  }
+
+  @Test
+  public void example2() {
+    // setup
+    int[] unordered = new int[] { 4, 3, 2, 1 };
+
+    // run
+    int minSwaps = MinSwaps.computate(unordered);
+
+    // verify
+    assertEquals(2, minSwaps);
+  }
+
+  @Test
+  public void example3() {
+    // setup
+    int[] unordered = new int[] {1, 5, 4, 3, 2};
+
+    // run
+    int minSwaps = MinSwaps.computate(unordered);
+
+    // verify
+    assertEquals(2, minSwaps);
   }
 }

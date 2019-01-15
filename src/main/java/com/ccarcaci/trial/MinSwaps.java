@@ -1,14 +1,32 @@
 package com.ccarcaci.trial;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class MinSwaps {
   public static int computate(int[] unordered) {
+    int size = unordered.length;
     int[] ordered = order(unordered);
     int[] realPositions = realPositions(ordered, unordered);
+    boolean[] touchs = new boolean[size];
+    Arrays.fill(touchs, false);
+    int i;
+    int landing;
+    int swaps = 0;
 
-    return 0;
+    for(i = 0; i < size; i++) {
+      if(!touchs[i]) {
+        landing = realPositions[i];
+
+        while(!touchs[landing]) {
+          touchs[landing] = true;
+          landing = realPositions[landing];
+
+          if(!touchs[landing]) { swaps++; }
+        }
+      }
+    }
+
+    return swaps;
   }
 
   private static int[] realPositions(int[] ordered, int[] unordered) {
