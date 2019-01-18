@@ -1,4 +1,4 @@
-package com.ccarcaci.trial;
+package com.ccarcaci.trial.minswaps;
 
 import java.util.Arrays;
 

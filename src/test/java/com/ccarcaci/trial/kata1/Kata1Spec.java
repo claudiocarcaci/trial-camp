@@ -1,5 +1,6 @@
-package com.ccarcaci.trial;
+package com.ccarcaci.trial.kata1;
 
+import com.ccarcaci.trial.kata1.Accountant;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +12,7 @@ public class Kata1Spec {
     String input = "";
 
     // run
-    long total = Calculator.sumUp(input);
+    long total = Accountant.computate(input);
 
     // verify
     assertEquals(0, total);
@@ -23,7 +24,7 @@ public class Kata1Spec {
     String input = "5";
 
     // run
-    long total = Calculator.sumUp(input);
+    long total = Accountant.computate(input);
 
     // verify
     assertEquals(5, total);
@@ -35,7 +36,7 @@ public class Kata1Spec {
     String input = "2,3";
 
     // run
-    long total = Calculator.sumUp(input);
+    long total = Accountant.computate(input);
 
     // verify
     assertEquals(5, total);
@@ -47,7 +48,7 @@ public class Kata1Spec {
     String input = "2,3,5,7";
 
     // run
-    long total = Calculator.sumUp(input);
+    long total = Accountant.computate(input);
 
     // verify
     assertEquals(17, total);
@@ -59,7 +60,7 @@ public class Kata1Spec {
     String input = "2\n3\n5";
 
     // run
-    long total = Calculator.sumUp(input);
+    long total = Accountant.computate(input);
 
     // verify
     assertEquals(10, total);
@@ -71,7 +72,7 @@ public class Kata1Spec {
     String input = "2\n4,3\n5,7,8";
 
     // run
-    long total = Calculator.sumUp(input);
+    long total = Accountant.computate(input);
 
     // verify
     assertEquals(29, total);
