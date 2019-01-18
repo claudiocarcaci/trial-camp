@@ -13,7 +13,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Accountant.Assistant.class)
-public class Kata1SeparatorSpec {
+public class AccountantWithCustomSeparatorSpec {
   @Before
   public void setup() {
     mockStatic(Accountant.Assistant.class);

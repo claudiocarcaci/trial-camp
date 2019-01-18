@@ -18,12 +18,23 @@ public class Accountant {
   }
 
   static class Assistant {
+    // Stateless function
     static String getCustomSeparatorsRegex(String input) {
-      return "";
+      if(input.startsWith("//")) {
+        int customSeparatorEndPosition = input.indexOf("\n");
+
+        return input.substring(0, customSeparatorEndPosition).
+            replaceFirst("//", "");
+      } else { return ""; }
     }
 
+    // Stateless function
     static String getInputValues(String input) {
-      return "";
+      if(input.startsWith("//")) {
+        int customSeparatorEndPosition = input.indexOf("\n");
+
+        return input.substring(customSeparatorEndPosition + 1);
+      } else { return input; }
     }
 
     static String[] splitByDefaults(String valuesInput) {
