@@ -1,5 +1,6 @@
 package com.ccarcaci.trial.kata1;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class Accountant {
@@ -38,11 +39,19 @@ public class Accountant {
     }
 
     static String[] splitByDefaults(String valuesInput) {
-      return new String[] { "" };
+      return valuesInput.split("[,\n]");
     }
 
     static String[] splitByCustom(String[] defaultSeparatorsValues, String customSeparatorsRegex) {
-      return new String[] { "" };
+      Object[] values = Stream.of(defaultSeparatorsValues).
+          flatMap(defaultSeparatorsValue ->
+              Stream.of(defaultSeparatorsValue.split(customSeparatorsRegex))).
+          toArray();
+
+      return Arrays.copyOf(
+          values,
+          values.length,
+          String[].class);
     }
   }
 }
