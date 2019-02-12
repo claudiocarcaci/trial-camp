@@ -5,8 +5,9 @@ import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
@@ -21,13 +22,12 @@ public class CaesarUnit {
     // setup
     mockStatic(Caesar.Kingdom.class);
 
-    int limit = 10;
+    int limit = 11;
     int size = 10;
-    String[] data = generateSomeStrings(size);
-    Stream dataStream = Stream.of(data);
+    List data = Arrays.asList(generateSomeStrings(size));
 
     // run
-    Caesar.impera(limit, dataStream);
+    Caesar.impera(limit, data);
 
     // verify
     verifyStatic(Caesar.Kingdom.class, times(1));
@@ -39,13 +39,12 @@ public class CaesarUnit {
     // setup
     mockStatic(Caesar.Kingdom.class);
 
-    int limit = 10;
+    int limit = 11;
     int size = 20;
-    String[] data = new String[size];
-    Stream dataStream = Stream.of(data);
+    List data = Arrays.asList(generateSomeStrings(size));
 
     // run
-    Caesar.impera(limit, dataStream);
+    Caesar.impera(limit, data);
 
     // verify
     verifyStatic(Caesar.Kingdom.class, times(2));

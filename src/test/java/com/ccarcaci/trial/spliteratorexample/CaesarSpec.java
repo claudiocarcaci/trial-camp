@@ -5,24 +5,36 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.assertTrue;
 
 public class CaesarSpec {
   @Test
-  public void doActionOnLargeSet() {
+  public void doActionOnSimpleSet() {
     // setup
     int limit = 10;
     int size = 20;
-    String[] data = generateSomeStrings(size);
-    Stream dataStream = Stream.of(data);
+    List data = Arrays.asList(generateSomeStrings(size));
 
     // run
-    List<String> result = Caesar.impera(limit, dataStream);
+    List<String> result = Caesar.impera(limit, data);
 
     // verify
-    assertTrue(Arrays.asList(data).containsAll(result) && result.containsAll(Arrays.asList(data)));
+    assertTrue(data.containsAll(result) && result.containsAll(data));
+  }
+
+  @Test
+  public void doActionOnLargeSet() {
+    // setup
+    int limit = 10;
+    int size = 543;
+    List data = Arrays.asList(generateSomeStrings(size));
+
+    // run
+    List<String> result = Caesar.impera(limit, data);
+
+    // verify
+    assertTrue(data.containsAll(result) && result.containsAll(data));
   }
 
   String[] generateSomeStrings(int size) {
